@@ -6,7 +6,7 @@ endif
 
 DOCKER_COMPOSE  = docker-compose
 DOCKER          = docker
-EXEC_PHP        = $(DOCKER) exec -e COMPOSER_AUTH="${COMPOSER_AUTH}" -ti Larawind
+EXEC_PHP        = $(DOCKER_COMPOSE) exec -e COMPOSER_AUTH="${COMPOSER_AUTH}" phpfpm
 ARTISAN         = $(EXEC_PHP) php artisan
 CURRENT_DIR		= $(shell pwd)
 LOCAL_ARTEFACTS = var/artefacts
@@ -99,7 +99,7 @@ key: ## Generate APP_KEY in .env file
 
 install: start
 
-start: .env run vendor assets init-storage permission key init-database seed ## Run the project
+start: .env run vendor assets permission init-database seed ## Run the project
 
 ##
 ## Config Caching
@@ -133,7 +133,6 @@ composer-optimize: ## Composer Optimization
 ## -----------------
 permission: ## Fix permission dir
 	$(EXEC_PHP) chmod 777 storage -R
-	$(EXEC_PHP) chmod 777 bootstrap/cache -R
 
 composer.lock: ## Run composer update
 	$(COMPOSER) update --lock --no-interaction
