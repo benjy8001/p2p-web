@@ -13,4 +13,6 @@
 |
 */
 
-$router->get('/', 'Controller@index');
+$router->get('/', [
+    'as' => 'index', 'uses' => 'Controller@index'
+]);
