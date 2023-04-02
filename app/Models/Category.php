@@ -15,11 +15,8 @@ class Category extends Model
     /** @var array */
     protected $guarded = [];
 
-    /**
-     * @return string
-     */
-    public function getRouteKeyName(): string
+    public function platforms(): HasMany
     {
-        return 'slug';
+        return $this->hasMany(Platform::class);
     }
 }

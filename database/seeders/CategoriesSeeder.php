@@ -8,7 +8,7 @@ use Illuminate\Database\Seeder;
 
 class CategoriesSeeder extends Seeder
 {
-    $datas = [
+    private array $datas = [
         'Crowdfunding' => '',
         'Crowdlending' => '',
         'SCPI' => '',
@@ -20,7 +20,7 @@ class CategoriesSeeder extends Seeder
     public function run(): void
     {
         $order = 1;
-        foreach ($datas as $name => $description) {
+        foreach ($this->datas as $name => $description) {
             DB::table('categories')->insert([
                 'name' => $name,
                 'order' => $order++,

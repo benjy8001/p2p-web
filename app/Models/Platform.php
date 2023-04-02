@@ -7,8 +7,9 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 
-class Plateform extends Model
+class Platform extends Model
 {
     use HasFactory;
 
@@ -21,5 +22,10 @@ class Plateform extends Model
     public function getRouteKeyName(): string
     {
         return 'slug';
+    }
+
+    public function category(): HasOne
+    {
+        return $this->hasOne(Category::class);
     }
 }
