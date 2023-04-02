@@ -22,11 +22,11 @@ return new class() extends Migration {
             $table->string('short_description')->nullable();
             $table->text('description')->nullable();
             $table->string('link');
-            $table->string('referral_code', 12);
-            $table->smallInteger('invested_amount');
-            $table->float('percentage', 2, 2);
-            $table->string('rank', 1);
-            $table->string('country', 2);
+            $table->string('referral_code', 12)->nullable();
+            $table->smallInteger('invested_amount')->default(0);
+            $table->float('percentage', 2, 2)->default(0);
+            $table->string('rank', 1)->nullable();
+            $table->string('country', 2)->nullable();
 
             $table->timestamps();
         });

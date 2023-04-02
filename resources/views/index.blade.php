@@ -15,12 +15,12 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
 
     <!-- Favicons -->
-    <link rel="apple-touch-icon" href="/docs/5.3/assets/img/favicons/apple-touch-icon.png" sizes="180x180">
-    <link rel="icon" href="/docs/5.3/assets/img/favicons/favicon-32x32.png" sizes="32x32" type="image/png">
-    <link rel="icon" href="/docs/5.3/assets/img/favicons/favicon-16x16.png" sizes="16x16" type="image/png">
-    <link rel="manifest" href="/docs/5.3/assets/img/favicons/manifest.json">
-    <link rel="mask-icon" href="/docs/5.3/assets/img/favicons/safari-pinned-tab.svg" color="#712cf9">
-    <link rel="icon" href="/docs/5.3/assets/img/favicons/favicon.ico">
+    <link rel="apple-touch-icon" href="img/favicons/apple-touch-icon.png" sizes="180x180">
+    <link rel="icon" href="img/favicons/favicon-32x32.png" sizes="32x32" type="image/png">
+    <link rel="icon" href="img/favicons/favicon-16x16.png" sizes="16x16" type="image/png">
+    <link rel="manifest" href="img/favicons/manifest.json">
+    <link rel="mask-icon" href="img/favicons/safari-pinned-tab.svg" color="#712cf9">
+    <link rel="icon" href="img/favicons/favicon.ico">
     <meta name="theme-color" content="#712cf9">
 
 
@@ -226,81 +226,55 @@
 
     <div class="album py-5 bg-body-tertiary">
         <div class="container">
-            <div class="accordion" id="accordionPanelsStayOpenExample">
-              <div class="accordion-item">
-                <h2 class="accordion-header">
-                  <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
-                    Accordion Item #1
-                  </button>
-                </h2>
-                <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show">
-                  <div class="accordion-body">
 
-                    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-                        <div class="col">
-                            <div class="card shadow-sm">
-                                <svg class="bd-placeholder-img card-img-top" width="100%" height="225"
-                                     xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail"
-                                     preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title>
-                                    <rect width="100%" height="100%" fill="#55595c"></rect>
-                                    <text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text>
-                                </svg>
-                                <div class="card-body">
-                                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
-                                        additional content. This content is a little bit longer.</p>
-                                    <div class="d-flex justify-content-between align-items-center">
-                                        <div class="btn-group">
-                                            <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                                            <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+
+            <div class="accordion" id="accordionPanelsStayOpen">
+            @if($categories->count())
+                @foreach($categories as $category)
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse{{ $category->id }}" aria-expanded="true" aria-controls="collapse{{ $category->id }}">
+                                {{ $category->name }}
+                            </button>
+                        </h2>
+                        <div id="collapse{{ $category->id }}" class="accordion-collapse collapse show">
+                            <div class="accordion-body">
+                                {{ $category->description }}
+                                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+                                @foreach($category->platforms as $platform)
+                                    <div class="col">
+                                        <div class="card shadow-sm">
+                                            <svg class="bd-placeholder-img card-img-top" width="100%" height="225"
+                                                 xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail"
+                                                 preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title>
+                                                <rect width="100%" height="100%" fill="#55595c"></rect>
+                                                <text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text>
+                                            </svg>
+                                            <div class="card-body">
+                                                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
+                                                    additional content. This content is a little bit longer.</p>
+                                                <div class="d-flex justify-content-between align-items-center">
+                                                    <div class="btn-group">
+                                                        <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                                                        <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                                                    </div>
+                                                    <small class="text-body-secondary">9 mins</small>
+                                                </div>
+                                            </div>
                                         </div>
-                                        <small class="text-body-secondary">9 mins</small>
                                     </div>
+                                @endforeach
                                 </div>
+
                             </div>
                         </div>
                     </div>
-
-                  </div>
-                </div>
-              </div>
-              <div class="accordion-item">
-                <h2 class="accordion-header">
-                  <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="true" aria-controls="panelsStayOpen-collapseTwo">
-                    Accordion Item #2
-                  </button>
-                </h2>
-                <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse show">
-                  <div class="accordion-body">
-                    <strong>This is the second item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
-
-
-                    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-                        <div class="col">
-                            <div class="card shadow-sm">
-                                <svg class="bd-placeholder-img card-img-top" width="100%" height="225"
-                                     xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail"
-                                     preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title>
-                                    <rect width="100%" height="100%" fill="#55595c"></rect>
-                                    <text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text>
-                                </svg>
-                                <div class="card-body">
-                                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
-                                        additional content. This content is a little bit longer.</p>
-                                    <div class="d-flex justify-content-between align-items-center">
-                                        <div class="btn-group">
-                                            <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                                            <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                                        </div>
-                                        <small class="text-body-secondary">9 mins</small>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+                @endforeach
+            @else
+                <h1>{{ __('No categories') }}</h1>
+            @endif
             </div>
+
 
             <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
                 <div class="col">
