@@ -18,6 +18,7 @@ return new class() extends Migration {
             $table->foreign('category_id')->references('id')->on('categories');
             $table->string('name', 64);
             $table->string('slug', 64);
+            $table->string('image_path');
             $table->tinyInteger('order');
             $table->string('short_description')->nullable();
             $table->text('description')->nullable();

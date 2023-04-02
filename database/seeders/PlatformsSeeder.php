@@ -20,7 +20,8 @@ class PlatformsSeeder extends Seeder
                 'name' => 'La premiére brique',
                 'category_id' => 1,
                 'description' => 'La premiére brique',
-                'link' => '',
+                'link' => 'https://www.lapremierebrique.fr/fr/users/sign_up/TODNRE',
+                'image_path' => 'img/platforms/la-premiere-brique.png',
                 'order' => $order++,
             ],
         ];
@@ -28,6 +29,7 @@ class PlatformsSeeder extends Seeder
             DB::table('platforms')->insert([
                 'name' => $data['name'],
                 'slug' => Str::slug($data['name']),
+                'image_path' => Str::slug($data['image_path']),
                 'category_id' => $data['category_id'],
                 'order' => $data['order'],
                 'description' => $data['description'],
