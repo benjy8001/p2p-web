@@ -24,12 +24,28 @@ class PlatformsSeeder extends Seeder
                 'image_path' => 'img/platforms/la-premiere-brique.png',
                 'order' => $order++,
             ],
+            [
+                'name' => 'Upstone',
+                'category_id' => 1,
+                'description' => 'Upstone',
+                'link' => 'https://www.upstone.co/',
+                'image_path' => 'img/platforms/upstone.jpg',
+                'order' => $order++,
+            ],
+            [
+                'name' => 'Robocash',
+                'category_id' => 2,
+                'description' => 'Robocash',
+                'link' => 'https://robo.cash/ref/agfy',
+                'image_path' => 'img/platforms/robocash.png',
+                'order' => $order=1,
+            ],
         ];
         foreach ($datas as $key => $data) {
             DB::table('platforms')->insert([
                 'name' => $data['name'],
                 'slug' => Str::slug($data['name']),
-                'image_path' => Str::slug($data['image_path']),
+                'image_path' => $data['image_path'],
                 'category_id' => $data['category_id'],
                 'order' => $data['order'],
                 'description' => $data['description'],
