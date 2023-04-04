@@ -12,6 +12,7 @@ const mix = require('laravel-mix');
  */
 
 mix.js('resources/js/color-modes.js', 'public/js/color-modes.js')
+    .copy('resources/*', 'public/')
     .copy('resources/img/*', 'public/img/')
     .copy('resources/img/platforms/*', 'public/img/platforms/')
     /*.postCss('resources/css/app.css', 'public/assets/css/custom.css', [
