@@ -1,5 +1,11 @@
 {
     "/js/color-modes.js": "/js/color-modes.js",
+    "/android-chrome-192x192.png": "/android-chrome-192x192.png",
+    "/android-chrome-512x512.png": "/android-chrome-512x512.png",
+    "/apple-touch-icon.png": "/apple-touch-icon.png",
+    "/favicon-16x16.png": "/favicon-16x16.png",
+    "/favicon-32x32.png": "/favicon-32x32.png",
+    "/favicon.ico": "/favicon.ico",
     "/img/platforms/la-premiere-brique.png": "/img/platforms/la-premiere-brique.png",
     "/img/platforms/robocash.png": "/img/platforms/robocash.png",
     "/img/platforms/upstone.jpg": "/img/platforms/upstone.jpg"
