@@ -16,3 +16,16 @@
 $router->get('/', [
     'as' => 'index', 'uses' => 'Controller@index'
 ]);
+
+$router->group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'auth'], function () use ($router) {
+    $router->get('/', function () {
+    });
+    $router->post('platforms', 'PlatformController@store');
+    /*
+$router->get($uri, $callback);
+$router->post($uri, $callback);
+$router->put($uri, $callback);
+$router->patch($uri, $callback);
+$router->delete($uri, $callback);
+     */
+});
